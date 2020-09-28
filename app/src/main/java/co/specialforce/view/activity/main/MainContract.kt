@@ -1,4 +1,4 @@
-package co.specialforce.view.main
+package co.specialforce.view.activity.main
 
 import co.specialforce.base.BaseContract
 
