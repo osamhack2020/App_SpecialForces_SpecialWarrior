@@ -33,7 +33,7 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
         if(requestCode==7777){
             if(resultCode==1){ // result = OK
                 val result : Float? = data?.getFloatExtra("Result", Float.MIN_VALUE)
-                // 서버 통신 필요
+                presenter.weightInput(result!!)
             }
         }
     }

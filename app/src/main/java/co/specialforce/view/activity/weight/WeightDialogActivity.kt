@@ -20,17 +20,6 @@ class WeightDialogActivity : Activity(), View.OnClickListener {
         weight_dialog_picker.value=70
         weight_dialog_picker.wrapSelectorWheel = false
 
-//
-//        val list = ArrayList<String>()
-//        for(i in 40 until 120){
-//            for(j in 0 until 9){
-//                list.add("$i.$j")
-//            }
-//        }
-//
-//        weight_dialog_picker.displayedValues = list.toTypedArray()
-//        weight_dialog_picker.wrapSelectorWheel = false
-
         weight_dialog_input_button.setOnClickListener(this)
         weight_dialog_cancel_button.setOnClickListener(this)
     }

@@ -2,10 +2,13 @@ package co.specialforce.data.retrofit
 
 import co.specialforce.data.request.JoinRequest
 import co.specialforce.data.request.LoginRequest
+import co.specialforce.data.request.WeightInputRequest
 import co.specialforce.data.response.JoinResponse
 import co.specialforce.data.response.LoginResponse
+import co.specialforce.data.response.WeightInputResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface RetrofitService {
@@ -14,4 +17,8 @@ interface RetrofitService {
 
     @POST("/api/v1/member/register")
     fun join(@Body request : JoinRequest) : Call<JoinResponse>
+
+    @POST("/api/v1/profile/set_weight")
+    fun weightInput(@Header("Authorization") token: String,
+                    @Body request : WeightInputRequest) : Call<WeightInputResponse>
 }
