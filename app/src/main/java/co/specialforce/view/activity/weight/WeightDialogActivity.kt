@@ -5,18 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.Window
 import co.specialforce.R
 import kotlinx.android.synthetic.main.activity_weight_dialog.*
 
 class WeightDialogActivity : Activity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_weight_dialog)
 
         weight_dialog_picker.minValue=40
         weight_dialog_picker.maxValue=120
         weight_dialog_picker.value=70
-        weight_dialog_picker.wrapSelectorWheel = true
+        weight_dialog_picker.wrapSelectorWheel = false
 
 //
 //        val list = ArrayList<String>()
