@@ -8,7 +8,10 @@ interface LoginContract {
             fun loginFinished()
             fun loginFailed()
         }
-        fun login(username: String, password: String, listener: LoginFinishedListener)
+        fun login(username: String, password: String, checkedAutoLogin: Boolean,
+                  listener: LoginFinishedListener)
+        fun checkAutoLogin()
+        fun saveAutoLogin(id: String, pw: String)
     }
 
     interface View: BaseContract.BaseView<Presenter>{
@@ -16,6 +19,8 @@ interface LoginContract {
     }
 
     interface Presenter: BaseContract.BasePresenter{
-        fun login(username: String, password: String)
+        fun checkAutoLogin()
+        fun login(username: String, password: String, checkedAutoLogin: Boolean)
+        fun autoLoginCheckFinished(id: String, pw: String)
     }
 }

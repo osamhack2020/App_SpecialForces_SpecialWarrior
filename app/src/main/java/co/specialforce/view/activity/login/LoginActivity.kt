@@ -20,12 +20,15 @@ class LoginActivity: BaseActivity(), LoginContract.View, View.OnClickListener {
 
         login_login_button.setOnClickListener(this)
         login_join_button.setOnClickListener(this)
+
+        presenter.checkAutoLogin()
     }
 
     override fun onClick(v: View) {
         when(v.id){
             R.id.login_login_button ->
-                presenter.login(login_id_edit.text.toString(), login_pw_edit.text.toString())
+                presenter.login(login_id_edit.text.toString(), login_pw_edit.text.toString(),
+                    login_save_check_box.isChecked)
             R.id.login_join_button ->
                 startActivity(Intent(this, JoinActivity::class.java))
         }
