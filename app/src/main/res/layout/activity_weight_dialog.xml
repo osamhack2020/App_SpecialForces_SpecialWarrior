@@ -4,15 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="320dp"
-    android:layout_height="200dp"
+    android:layout_height="180dp"
     tools:context=".view.activity.weight.WeightDialogActivity">
 
     <NumberPicker
         android:id="@+id/weight_dialog_picker"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="130dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -27,5 +26,39 @@
         android:textStyle="bold"
         android:textColor="#7d7e82"
         android:text="kg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/weight_dialog_picker">
+
+        <Button
+            android:id="@+id/weight_dialog_input_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="입력"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:background="#ffffff"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGray" />
+
+        <Button
+            android:id="@+id/weight_dialog_cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="취소"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:background="#ffffff"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
