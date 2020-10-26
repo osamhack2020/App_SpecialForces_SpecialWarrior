@@ -37,9 +37,9 @@ class WeightModel(private val presenter: WeightPresenter): WeightContract.Model 
         getWeightCall.enqueue((object : Callback<GetWeightResponse> {
             override fun onResponse(call: Call<GetWeightResponse>, response: Response<GetWeightResponse>) {
                 if(response.code()==200) {
-                    listener.getWeightFinished(response.body()?.result, response.body()?.min_max_avg?.get(0))
+                    listener.getWeightFinished(response.body()?.result, response.body()?.min_max_avg)
                 }else{
-                    Log.d("Get Weight Failed", "Get Weight Failed")
+                    listener.getWeightFinished(response.body()?.result, response.body()?.min_max_avg)
                 }
             }
             override fun onFailure(call: Call<GetWeightResponse>, t: Throwable) {

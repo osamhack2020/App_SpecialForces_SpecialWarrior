@@ -1,3 +1,3 @@
 package co.specialforce.data.response.getWeight
 
-data class WeightMinMaxAvg (val min: Int, val max: Int, val average: Int)
+data class WeightMinMaxAvg (val min: Float, val max: Float, val average: Float)

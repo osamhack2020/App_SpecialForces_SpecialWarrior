@@ -86,7 +86,8 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
                 num += weight.date.substring(0,4).toInt()*10000
                 num += weight.date.substring(5,7).toInt()*100
                 num += weight.date.substring(8,10).toInt()
-                values.add(Entry(num.toFloat(), weight.weight.toFloat()))
+                var hex = num.toFloat().toInt()
+                values.add(Entry(num.toFloat(), weight.weight))
             }
         }
         val set = LineDataSet(values, "체중")
@@ -95,7 +96,13 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
         val dataSets = ArrayList<ILineDataSet>()
         dataSets.add(set)
         weight_chart.data = LineData(dataSets)
-
+        weight_chart.data.notifyDataChanged()
+        weight_chart.notifyDataSetChanged()
+        weight_chart.apply{
+            moveViewToX(data.entryCount.toFloat())
+            setVisibleXRangeMaximum(4f)
+            setPinchZoom(false)
+        }
     }
     override fun isViewActive(): Boolean = isViewActive()
 }
