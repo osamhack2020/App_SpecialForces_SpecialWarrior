@@ -7,14 +7,20 @@ import co.specialforce.R
 import co.specialforce.base.BaseActivity
 import co.specialforce.data.response.getWeight.WeightArray
 import co.specialforce.data.response.getWeight.WeightMinMaxAvg
+import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import kotlinx.android.synthetic.main.activity_weight.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener {
     override val layoutRes: Int
@@ -58,21 +64,17 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
             textSize = 10f
             setDrawGridLines(false)
             granularity = 1f
-            axisMinimum = 2f
+            axisMinimum = SimpleDateFormat("yyyy-MM-dd").parse("2020-10-17").time.toFloat()
             isGranularityEnabled = true
         }
-        val formatter = object : ValueFormatter(){
+        xAxis.valueFormatter = object : IndexAxisValueFormatter(){
             override fun getFormattedValue(value: Float): String {
-                val date = value.toInt()
-                return (date/10000).toString() + "-" + ((date/100)%100).toString() +
-                        "-" + (date%100).toString()
+                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
             }
-        }
-        xAxis.valueFormatter = formatter
-        weight_chart.apply{
-            axisRight.isEnabled = false
-            axisLeft.axisMaximum = 50f
-            // 범례 지정 원할 시 legend 값 apply 필요
+
+            override fun getAxisLabel(value: Float, axis: AxisBase?): String {
+                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
+            }
         }
         weight_chart.data = lineData
         presenter.getWeight()
@@ -82,27 +84,45 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
         val values = ArrayList<Entry>()
         if (weightList != null) {
             for(weight in weightList){
-                var num = 0
-                num += weight.date.substring(0,4).toInt()*10000
-                num += weight.date.substring(5,7).toInt()*100
-                num += weight.date.substring(8,10).toInt()
-                var hex = num.toFloat().toInt()
-                values.add(Entry(num.toFloat(), weight.weight))
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+                values.add(Entry(dateFormat.parse(weight.date).time.toFloat(), weight.weight))
             }
         }
         val set = LineDataSet(values, "체중")
-        set.color = Color.BLACK
-        set.setCircleColor(Color.BLACK)
+        set.apply{
+            axisDependency = YAxis.AxisDependency.LEFT
+            color = Color.BLACK
+            setCircleColor(Color.BLACK)
+            valueTextSize = 10f
+            lineWidth = 2f
+            circleRadius = 3f
+            fillAlpha = 0
+            fillColor = Color.BLACK
+            setDrawValues(true)
+            isHighlightEnabled = false
+            mode = LineDataSet.Mode.CUBIC_BEZIER
+        }
         val dataSets = ArrayList<ILineDataSet>()
         dataSets.add(set)
         weight_chart.data = LineData(dataSets)
         weight_chart.data.notifyDataChanged()
-        weight_chart.notifyDataSetChanged()
         weight_chart.apply{
+            notifyDataSetChanged()
+            axisRight.isEnabled = false
             moveViewToX(data.entryCount.toFloat())
-            setVisibleXRangeMaximum(4f)
+            setMaxVisibleValueCount(7)
+//            setVisibleXRangeMaximum(4f)
+//            moveViewToX(7f)
+//            setVisibleXRangeMaximum(7f)
+            moveViewToX(data.entryCount.toFloat())
             setPinchZoom(false)
+            animateY(1000)
+            isDoubleTapToZoomEnabled = false
+            legend.isEnabled = false
+            description.isEnabled = false
+            setExtraOffsets(8f, 16f, 8f, 16f)
         }
     }
     override fun isViewActive(): Boolean = isViewActive()
+
 }
