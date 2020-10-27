@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FullScreenTheme">
-        <activity android:name=".view.activity.weight.WeightActivity"/>
-        <activity android:name=".view.activity.weight.WeightDialogActivity"
-            android:theme="@android:style/Theme.Material.Dialog"/>
-        <activity android:name=".view.activity.login.LoginActivity">
+        <activity android:name=".view.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -22,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.weight.WeightActivity"/>
+        <activity android:name=".view.activity.weight.WeightDialogActivity"
+            android:theme="@android:style/Theme.Material.Dialog"/>
+        <activity android:name=".view.activity.login.LoginActivity"/>
         <activity android:name=".view.activity.join.JoinActivity" />
         <activity android:name=".view.activity.main.MainActivity" />
     </application>
