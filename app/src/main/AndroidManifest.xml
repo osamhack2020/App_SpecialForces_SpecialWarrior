@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.unitSearch.UnitSearchActivity"/>
         <activity android:name=".view.activity.weight.WeightActivity"/>
         <activity android:name=".view.activity.weight.WeightDialogActivity"
             android:theme="@android:style/Theme.Material.Dialog"/>
