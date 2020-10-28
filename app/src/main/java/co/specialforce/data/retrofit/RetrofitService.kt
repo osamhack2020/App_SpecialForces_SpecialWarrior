@@ -2,11 +2,13 @@ package co.specialforce.data.retrofit
 
 import co.specialforce.data.request.JoinRequest
 import co.specialforce.data.request.LoginRequest
+import co.specialforce.data.request.UnitSearchRequest
 import co.specialforce.data.request.WeightInputRequest
 import co.specialforce.data.response.JoinResponse
 import co.specialforce.data.response.LoginResponse
 import co.specialforce.data.response.WeightInputResponse
 import co.specialforce.data.response.getWeight.GetWeightResponse
+import co.specialforce.data.response.unitSearch.UnitSearchResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,4 +28,7 @@ interface RetrofitService {
 
     @GET("/api/v1/profile/get_weight_data")
     fun getWeight(@Header("Authorization") token: String) : Call<GetWeightResponse>
+
+    @POST("/api/v1/member/find_afflication")
+    fun searchUnit(@Body request : UnitSearchRequest) : Call<UnitSearchResponse>
 }

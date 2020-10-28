@@ -1,5 +1,6 @@
 package co.specialforce.view.activity.join
 
+import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.widget.Toast
@@ -7,6 +8,7 @@ import co.specialforce.R
 import co.specialforce.base.BaseActivity
 import co.specialforce.data.request.JoinRequest
 import co.specialforce.view.activity.login.LoginActivity
+import co.specialforce.view.activity.unitSearch.UnitSearchActivity
 import kotlinx.android.synthetic.main.activity_join.*
 
 class JoinActivity: BaseActivity(), JoinContract.View, View.OnClickListener {
@@ -20,6 +22,7 @@ class JoinActivity: BaseActivity(), JoinContract.View, View.OnClickListener {
         presenter.start()
 
         join_join_button.setOnClickListener(this)
+        join_unit_search_button.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -30,6 +33,9 @@ class JoinActivity: BaseActivity(), JoinContract.View, View.OnClickListener {
                     join_class_check_box.isChecked, join_army_num_edit.text.toString(),
                     join_unit_id_edit.text.toString().toInt(), join_name_edit.text.toString(),
                     join_email_edit.text.toString(), join_phone_edit.toString()))
+            R.id.join_unit_search_button -> {
+                startActivityForResult(Intent(this, UnitSearchActivity::class.java), 100)
+            }
         }
     }
 
@@ -49,6 +55,13 @@ class JoinActivity: BaseActivity(), JoinContract.View, View.OnClickListener {
             "상병" -> 2
             "병장" -> 3
             else -> -1
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK){
+            join_unit_id_edit.setText(data!!.getStringExtra("Unit").toString())
         }
     }
 

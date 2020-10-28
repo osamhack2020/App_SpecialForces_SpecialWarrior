@@ -147,6 +147,8 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textSize="14sp"
+        android:hint="부대번호를 조회해주세요"
+        android:inputType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/join_unit_text"/>
 
