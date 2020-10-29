@@ -24,7 +24,10 @@
         <activity android:name=".view.activity.unitSearch.UnitSearchActivity"/>
         <activity android:name=".view.activity.heart.HeartActivity"/>
         <activity android:name=".view.activity.weight.WeightActivity"/>
+        <activity android:name=".view.activity.sleep.SleepActivity"/>
         <activity android:name=".view.activity.weight.WeightDialogActivity"
+            android:theme="@android:style/Theme.Material.Dialog"/>
+        <activity android:name=".view.activity.sleep.SleepDialogActivity"
             android:theme="@android:style/Theme.Material.Dialog"/>
         <activity android:name=".view.activity.login.LoginActivity"/>
         <activity android:name=".view.activity.join.JoinActivity" />

@@ -1,48 +1,46 @@
-package co.specialforce.view.activity.weight
+package co.specialforce.view.activity.sleep
 
 import android.content.Intent
 import android.graphics.Color
 import android.view.View
 import co.specialforce.R
 import co.specialforce.base.BaseActivity
-import co.specialforce.data.response.getWeight.WeightArray
-import co.specialforce.data.response.getWeight.WeightMinMaxAvg
+import co.specialforce.data.response.getSleep.SleepArray
+import co.specialforce.data.response.getSleep.SleepMinMaxAvg
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import kotlinx.android.synthetic.main.activity_weight.*
+import kotlinx.android.synthetic.main.activity_sleep.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener {
+class SleepActivity: BaseActivity(), SleepContract.View, View.OnClickListener {
     override val layoutRes: Int
-        get() = R.layout.activity_weight
+        get() = R.layout.activity_sleep
 
-    override lateinit var presenter: WeightContract.Presenter
+    override lateinit var presenter : SleepContract.Presenter
     private val lineData = LineData()
 
     override fun initView() {
-        presenter = WeightPresenter(this@WeightActivity)
+        presenter = SleepPresenter(this@SleepActivity)
         presenter.start()
 
-        weight_input_button.setOnClickListener(this)
+        sleep_input_button.setOnClickListener(this)
 
         initChart()
     }
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.weight_input_button -> {
+            R.id.sleep_input_button -> {
                 startActivityForResult(Intent(this,
-                    WeightDialogActivity::class.java),7777)
+                    SleepDialogActivity::class.java),7777)
             }
         }
     }
@@ -51,14 +49,14 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==7777){
             if(resultCode==1){ // result = OK
-                val result : Float? = data?.getFloatExtra("Result", Float.MIN_VALUE)
-                presenter.weightInput(result!!)
+                val result : Int? = data?.getIntExtra("Result", Int.MIN_VALUE)
+                presenter.sleepInput(result!!)
             }
         }
     }
 
     private fun initChart(){
-        val xAxis = weight_chart.xAxis
+        val xAxis = sleep_chart.xAxis
         xAxis.apply {
             position = XAxis.XAxisPosition.BOTTOM
             textSize = 10f
@@ -76,19 +74,19 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
                 return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
             }
         }
-        weight_chart.data = lineData
-        presenter.getWeight()
+        sleep_chart.data = lineData
+        presenter.getSleep()
     }
 
-    override fun setChartData(weightList: List<WeightArray>?, weightMinMaxAvg: WeightMinMaxAvg?) {
+    override fun setChartData(sleepList: List<SleepArray>?, sleepMinMaxAvg: SleepMinMaxAvg?) {
         val values = ArrayList<Entry>()
-        if (weightList != null) {
-            for(weight in weightList){
+        if (sleepList != null) {
+            for(sleep in sleepList){
                 val dateFormat = SimpleDateFormat("yyyy-MM-dd")
-                values.add(Entry(dateFormat.parse(weight.date).time.toFloat(), weight.weight))
+                values.add(Entry(dateFormat.parse(sleep.date).time.toFloat(), sleep.sleep_time))
             }
         }
-        val set = LineDataSet(values, "체중")
+        val set = LineDataSet(values, "수면시간")
         set.apply{
             axisDependency = YAxis.AxisDependency.LEFT
             color = Color.BLACK
@@ -100,12 +98,13 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
             fillColor = Color.BLACK
             setDrawValues(true)
             isHighlightEnabled = false
+            mode = LineDataSet.Mode.CUBIC_BEZIER
         }
         val dataSets = ArrayList<ILineDataSet>()
         dataSets.add(set)
-        weight_chart.data = LineData(dataSets)
-        weight_chart.data.notifyDataChanged()
-        weight_chart.apply{
+        sleep_chart.data = LineData(dataSets)
+        sleep_chart.data.notifyDataChanged()
+        sleep_chart.apply{
             notifyDataSetChanged()
             axisRight.isEnabled = false
             moveViewToX(data.entryCount.toFloat())
@@ -118,11 +117,10 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
             description.isEnabled = false
             setExtraOffsets(8f, 16f, 8f, 16f)
         }
-        weight_min_text.text = weightMinMaxAvg?.min.toString()+"kg"
-        weight_max_text.text = weightMinMaxAvg?.max.toString()+"kg"
-        weight_avg_text.text = weightMinMaxAvg?.average.toString()+"kg"
+        sleep_min_text.text = sleepMinMaxAvg?.min?.toInt().toString()+"분"
+        sleep_max_text.text = sleepMinMaxAvg?.max?.toInt().toString()+"분"
+        sleep_avg_text.text = sleepMinMaxAvg?.average?.toInt().toString()+"분"
 
     }
     override fun isViewActive(): Boolean = isViewActive()
-
 }

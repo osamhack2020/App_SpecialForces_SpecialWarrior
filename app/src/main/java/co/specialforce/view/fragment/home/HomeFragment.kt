@@ -6,6 +6,7 @@ import android.view.View
 import co.specialforce.R
 import co.specialforce.base.BaseFragment
 import co.specialforce.view.activity.heart.HeartActivity
+import co.specialforce.view.activity.sleep.SleepActivity
 import co.specialforce.view.activity.weight.WeightActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -30,6 +31,8 @@ class HomeFragment : BaseFragment(), HomeContract.View, View.OnClickListener {
                     -> startActivity(Intent(activity, WeightActivity::class.java))
             R.id.home_heart_card_view
                     -> startActivity(Intent(activity, HeartActivity::class.java))
+            R.id.home_sleep_card_view
+                    -> startActivity(Intent(activity, SleepActivity::class.java))
         }
     }
 
