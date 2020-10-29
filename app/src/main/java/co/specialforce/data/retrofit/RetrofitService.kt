@@ -1,12 +1,11 @@
 package co.specialforce.data.retrofit
 
-import co.specialforce.data.request.JoinRequest
-import co.specialforce.data.request.LoginRequest
-import co.specialforce.data.request.UnitSearchRequest
-import co.specialforce.data.request.WeightInputRequest
+import co.specialforce.data.request.*
+import co.specialforce.data.response.HeartInputResponse
 import co.specialforce.data.response.JoinResponse
 import co.specialforce.data.response.LoginResponse
 import co.specialforce.data.response.WeightInputResponse
+import co.specialforce.data.response.getHeart.GetHeartResponse
 import co.specialforce.data.response.getWeight.GetWeightResponse
 import co.specialforce.data.response.unitSearch.UnitSearchResponse
 import retrofit2.Call
@@ -31,4 +30,11 @@ interface RetrofitService {
 
     @POST("/api/v1/member/find_afflication")
     fun searchUnit(@Body request : UnitSearchRequest) : Call<UnitSearchResponse>
+
+    @GET("/api/v1/heartrate/get_heartrate_profile_data")
+    fun getHeart(@Header("Authorization") token: String) : Call<GetHeartResponse>
+
+    @POST("/api/v1/heartrate/add_heartrate_profile")
+    fun heartInput(@Header("Authorization") token: String,
+                   @Body request : HeartInputRequest) : Call<HeartInputResponse>
 }

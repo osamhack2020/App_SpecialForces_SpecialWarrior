@@ -3,6 +3,8 @@
     package="co.specialforce">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="true"/>
 
     <application
         android:allowBackup="false"
@@ -20,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.unitSearch.UnitSearchActivity"/>
+        <activity android:name=".view.activity.heart.HeartActivity"/>
         <activity android:name=".view.activity.weight.WeightActivity"/>
         <activity android:name=".view.activity.weight.WeightDialogActivity"
             android:theme="@android:style/Theme.Material.Dialog"/>

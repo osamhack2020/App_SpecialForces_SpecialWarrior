@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import co.specialforce.R
 import co.specialforce.base.BaseFragment
+import co.specialforce.view.activity.heart.HeartActivity
 import co.specialforce.view.activity.weight.WeightActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -27,6 +28,8 @@ class HomeFragment : BaseFragment(), HomeContract.View, View.OnClickListener {
         when(v.id){
             R.id.home_weight_card_view
                     -> startActivity(Intent(activity, WeightActivity::class.java))
+            R.id.home_heart_card_view
+                    -> startActivity(Intent(activity, HeartActivity::class.java))
         }
     }
 
