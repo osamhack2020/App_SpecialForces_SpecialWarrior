@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_unit_search.*
 import kotlinx.android.synthetic.main.item_unit_search.view.*
 
 class UnitSearchActivity : BaseActivity(), UnitSearchContract.View, View.OnClickListener{
-    lateinit var recyclerViewAdapter : UnitAdapter
+    private lateinit var recyclerViewAdapter : UnitAdapter
 
     override val layoutRes: Int
         get() = R.layout.activity_unit_search

@@ -2,6 +2,7 @@ package co.specialforce.data.retrofit
 
 import co.specialforce.data.request.*
 import co.specialforce.data.response.*
+import co.specialforce.data.response.getFriend.GetFriendResponse
 import co.specialforce.data.response.getHeart.GetHeartResponse
 import co.specialforce.data.response.getSleep.GetSleepResponse
 import co.specialforce.data.response.getWeight.GetWeightResponse
@@ -42,4 +43,7 @@ interface RetrofitService {
 
     @GET("/api/v1/profile/get_sleeptime_data")
     fun getSleep(@Header("Authorization") token: String) : Call<GetSleepResponse>
+
+    @GET("/api/v1/friend/get_friend_list")
+    fun getFriend(@Header("Authorization") token : String) : Call<GetFriendResponse>
 }
