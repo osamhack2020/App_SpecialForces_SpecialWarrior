@@ -5,7 +5,7 @@
     android:layout_height="100dp"
     android:backgroundTint="#ffffff"
     android:layout_margin="15dp"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout

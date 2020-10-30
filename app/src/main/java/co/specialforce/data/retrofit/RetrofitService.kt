@@ -5,6 +5,7 @@ import co.specialforce.data.response.*
 import co.specialforce.data.response.getExercise.GetExerciseResponse
 import co.specialforce.data.response.getFriend.GetFriendResponse
 import co.specialforce.data.response.getHeart.GetHeartResponse
+import co.specialforce.data.response.getProfile.GetProfileResponse
 import co.specialforce.data.response.getSleep.GetSleepResponse
 import co.specialforce.data.response.getWeight.GetWeightResponse
 import co.specialforce.data.response.unitSearch.UnitSearchResponse
@@ -55,4 +56,7 @@ interface RetrofitService {
     @POST("/api/v1/exercise/add_exercise_profile")
     fun exerciseInput(@Header("Authorization") token : String,
                       @Body request: ExerciseInputRequest) : Call<ExerciseInputResponse>
+
+    @POST("/api/v1/member/get_userinfo")
+    fun getProfile(@Header("Authorization") token : String) : Call<GetProfileResponse>
 }

@@ -36,6 +36,21 @@ class ExerciseFragment: BaseFragment(), ExerciseContract.View, View.OnClickListe
         presenter.getExercise(exercise_calendar_button.text.toString())
     }
 
+    private fun resetText(){
+        exercise_0_count.text = "-"
+        exercise_1_count.text = "-"
+        exercise_2_sec_count.text = "-"
+        exercise_2_min_count.text = "-"
+        exercise_3_unit_count.text = "-"
+        exercise_3_count.text = "-"
+        exercise_4_unit_count.text = "-"
+        exercise_4_count.text = "-"
+        exercise_5_unit_count.text = "-"
+        exercise_5_count.text = "-"
+        exercise_6_unit_count.text = "-"
+        exercise_6_count.text = "-"
+    }
+
     override fun onClick(v: View) {
         when(v.id){
             R.id.exercise_calendar_button -> {
@@ -46,6 +61,8 @@ class ExerciseFragment: BaseFragment(), ExerciseContract.View, View.OnClickListe
                     calendar.set(Calendar.YEAR, year)
                     calendar.set(Calendar.MONTH, monthOfYear)
                     calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                    resetText()
 
                     val format = "yyyy-MM-dd"
                     exercise_calendar_button.text = SimpleDateFormat(format).format(calendar.time)

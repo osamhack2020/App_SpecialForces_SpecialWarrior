@@ -6,6 +6,29 @@
     android:background="#eeeeee"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/home_hello_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
+        android:text="안녕하세요"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="18sp"
+        android:textColor="#3a3a3a" />
+
+    <TextView
+        android:id="@+id/home_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/home_hello_text"
+        android:layout_marginStart="15dp"
+        android:text="홍길동 일병님"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2a2a2a" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/home_weight_card_view"
         android:layout_width="match_parent"
@@ -14,8 +37,8 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="25dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardCornerRadius="2dp"
+        app:layout_constraintTop_toBottomOf="@id/home_name_text">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -75,8 +98,8 @@
         android:backgroundTint="#ffffff"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="45dp"
-        app:cardCornerRadius="20dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="2dp"
         app:layout_constraintTop_toBottomOf="@id/home_weight_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -162,8 +185,8 @@
         android:backgroundTint="#ffffff"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="45dp"
-        app:cardCornerRadius="20dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="2dp"
         app:layout_constraintTop_toBottomOf="@id/home_sleep_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -224,8 +247,8 @@
         android:backgroundTint="#ffffff"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="45dp"
-        app:cardCornerRadius="20dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="2dp"
         app:layout_constraintTop_toBottomOf="@id/home_heart_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout

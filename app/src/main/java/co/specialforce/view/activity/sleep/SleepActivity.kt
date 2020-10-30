@@ -51,6 +51,7 @@ class SleepActivity: BaseActivity(), SleepContract.View, View.OnClickListener {
             if(resultCode==1){ // result = OK
                 val result : Int? = data?.getIntExtra("Result", Int.MIN_VALUE)
                 presenter.sleepInput(result!!)
+                presenter.getSleep()
             }
         }
     }

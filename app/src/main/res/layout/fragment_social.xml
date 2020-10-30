@@ -7,22 +7,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/social_title_text"
+        android:id="@+id/social_hello_text"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
         android:text="전우 목록"
-        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:textStyle="bold"
-        android:textColor="@color/colorGray"/>
+        android:textSize="24sp"
+        android:textColor="#3a3a3a" />
+
+    <TextView
+        android:id="@+id/social_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/social_hello_text"
+        android:layout_marginStart="15dp"
+        android:text="정보통신중대"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#2a2a2a" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/social_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/social_title_text"
+        app:layout_constraintTop_toBottomOf="@id/social_name_text"
         android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

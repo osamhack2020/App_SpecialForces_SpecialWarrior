@@ -53,6 +53,7 @@ class WeightActivity : BaseActivity(), WeightContract.View, View.OnClickListener
             if(resultCode==1){ // result = OK
                 val result : Float? = data?.getFloatExtra("Result", Float.MIN_VALUE)
                 presenter.weightInput(result!!)
+                presenter.getWeight()
             }
         }
     }

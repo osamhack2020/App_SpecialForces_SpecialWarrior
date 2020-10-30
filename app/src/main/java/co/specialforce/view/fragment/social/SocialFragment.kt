@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.specialforce.R
 import co.specialforce.base.BaseFragment
 import co.specialforce.data.response.getFriend.Friend
+import co.specialforce.data.user.UserInformation
 import kotlinx.android.synthetic.main.fragment_social.*
 import kotlinx.android.synthetic.main.item_friend.view.*
 
@@ -23,6 +24,8 @@ class SocialFragment: BaseFragment(), SocialContract.View {
     override fun setView(view: View?, savedInstanceState: Bundle?, arguments: Bundle?) {
         presenter = SocialPresenter(this@SocialFragment)
         presenter.start()
+
+        social_name_text.text = UserInformation.unit
 
         val recyclerView = social_recycler_view
         recyclerViewAdapter = FriendAdapter(presenter)

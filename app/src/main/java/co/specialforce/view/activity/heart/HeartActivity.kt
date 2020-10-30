@@ -55,6 +55,7 @@ class HeartActivity: BaseActivity(), HeartContract.View, View.OnClickListener {
                         presenter.heartInput(randomHeartRate)
                         progressDialog.dismiss()
                         Toast.makeText(this, "현재 심박수는 "+randomHeartRate.toString()+"입니다", Toast.LENGTH_SHORT).show()
+                        presenter.getHeart()
                     }, 5000)
                 }, 2000)
             }

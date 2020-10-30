@@ -22,11 +22,13 @@ class ExerciseModel(private val presenter: ExercisePresenter): ExerciseContract.
                 override fun onResponse(call: Call<GetExerciseResponse>, response: Response<GetExerciseResponse>) {
                     if(response.code()==200) {
                         if(response.body()?.result?.size!=0){
-                            listener.getExerciseFinished(response.body()?.result?.get(0))
+                            listener.getExerciseFinished(response.body()?.result?.
+                                get(response.body()?.result?.size!!-1))
                         }
                     }else{
                         if(response.body()?.result?.size!=0){
-                            listener.getExerciseFinished(response.body()?.result?.get(0))
+                            listener.getExerciseFinished(response.body()?.result?.
+                                get(response.body()?.result?.size!!-1))
                         }
                     }
                 }
