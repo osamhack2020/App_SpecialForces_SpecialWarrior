@@ -2,6 +2,7 @@ package co.specialforce.data.retrofit
 
 import co.specialforce.data.request.*
 import co.specialforce.data.response.*
+import co.specialforce.data.response.getExercise.GetExerciseResponse
 import co.specialforce.data.response.getFriend.GetFriendResponse
 import co.specialforce.data.response.getHeart.GetHeartResponse
 import co.specialforce.data.response.getSleep.GetSleepResponse
@@ -46,4 +47,12 @@ interface RetrofitService {
 
     @GET("/api/v1/friend/get_friend_list")
     fun getFriend(@Header("Authorization") token : String) : Call<GetFriendResponse>
+
+    @POST("/api/v1/exercise/get_exercise_profile_data")
+    fun getExercise(@Header("Authorization") token : String,
+                    @Body request : GetExerciseRequest) : Call<GetExerciseResponse>
+
+    @POST("/api/v1/exercise/add_exercise_profile")
+    fun exerciseInput(@Header("Authorization") token : String,
+                      @Body request: ExerciseInputRequest) : Call<ExerciseInputResponse>
 }

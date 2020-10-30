@@ -18,6 +18,7 @@ class HomeFragment : BaseFragment(), HomeContract.View, View.OnClickListener {
 
     override fun setView(view: View?, savedInstanceState: Bundle?, arguments: Bundle?) {
         presenter = HomePresenter(this@HomeFragment)
+        presenter.start()
 
         home_weight_card_view.setOnClickListener(this)
         home_sleep_card_view.setOnClickListener(this)

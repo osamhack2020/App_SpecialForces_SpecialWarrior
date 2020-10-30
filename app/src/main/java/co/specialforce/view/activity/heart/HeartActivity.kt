@@ -39,22 +39,26 @@ class HeartActivity: BaseActivity(), HeartContract.View, View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val progressDialog = ProgressDialog(this, android.R.style.Theme_Material_Dialog_Alert)
-        progressDialog.setMessage("손가락을 기기 센서 위에 접촉해주세요")
-        progressDialog.setCancelable(true)
-        progressDialog.show()
+        when(v.id){
+            R.id.heart_input_button ->{
+                val progressDialog = ProgressDialog(this, android.R.style.Theme_Material_Dialog_Alert)
+                progressDialog.setMessage("손가락을 기기 센서 위에 접촉해주세요")
+                progressDialog.setCancelable(true)
+                progressDialog.show()
 
-        val handler = Handler()
-        val finishHandler = Handler()
-        handler.postDelayed({
-            progressDialog.setMessage("측정중입니다. 잠시만 기다려주세요")
-            finishHandler.postDelayed({
-                val randomHeartRate = Random().nextInt(50)+100
-                presenter.heartInput(randomHeartRate)
-                progressDialog.dismiss()
-                Toast.makeText(this, "현재 심박수는 "+randomHeartRate.toString()+"입니다", Toast.LENGTH_SHORT).show()
-            }, 5000)
-        }, 2000)
+                val handler = Handler()
+                val finishHandler = Handler()
+                handler.postDelayed({
+                    progressDialog.setMessage("측정중입니다. 잠시만 기다려주세요")
+                    finishHandler.postDelayed({
+                        val randomHeartRate = Random().nextInt(50)+100
+                        presenter.heartInput(randomHeartRate)
+                        progressDialog.dismiss()
+                        Toast.makeText(this, "현재 심박수는 "+randomHeartRate.toString()+"입니다", Toast.LENGTH_SHORT).show()
+                    }, 5000)
+                }, 2000)
+            }
+        }
     }
 
     private fun initChart(){
