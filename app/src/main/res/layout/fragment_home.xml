@@ -65,6 +65,7 @@
                 android:text="체중"/>
 
             <TextView
+                android:id="@+id/home_weight_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +74,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:text="63"
+                android:text="70"
                 android:textColor="#000000"/>
 
             <TextView
@@ -214,6 +215,7 @@
                 android:text="심박수"/>
 
             <TextView
+                android:id="@+id/home_heart_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -222,7 +224,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:text="140"
+                android:text="122"
                 android:textColor="#000000"/>
 
             <TextView
@@ -276,6 +278,7 @@
                 android:text="음식"/>
 
             <TextView
+                android:id="@+id/home_food_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -284,7 +287,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:text="1500"
+                android:text="2300"
                 android:textColor="#000000"/>
 
             <TextView
@@ -296,7 +299,7 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginEnd="25dp"
                 android:textSize="16sp"
-                android:text="/1600 kcal"/>
+                android:text="/2700 kcal"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,7 @@
 package co.specialforce.data.model
 
 import android.util.Log
+import co.specialforce.data.response.getInfo.GetInfoResponse
 import co.specialforce.data.response.getProfile.GetProfileResponse
 import co.specialforce.data.retrofit.RetrofitGenerator
 import co.specialforce.data.user.UserInformation
@@ -29,6 +30,21 @@ class HomeModel(private val presenter : HomePresenter): HomeContract.Model {
             }
             override fun onFailure(call: Call<GetProfileResponse>, t: Throwable) {
                 Log.d("Get Profile Failed", "Get Profile Failed")
+            }
+        }))
+
+        val getInfoCall = RetrofitGenerator.create().getDailyInfo("Bearer "+
+                UserInformation.token)
+        getInfoCall.enqueue((object : Callback<GetInfoResponse> {
+            override fun onResponse(call: Call<GetInfoResponse>, response: Response<GetInfoResponse>) {
+                if(response.code()==200) {
+                    listener.getInfoFinished(response.body()?.result)
+                }else{
+                    listener.getInfoFinished(response.body()?.result)
+                }
+            }
+            override fun onFailure(call: Call<GetInfoResponse>, t: Throwable) {
+                Log.d("Get Info Failed", "Get Info Failed")
             }
         }))
     }

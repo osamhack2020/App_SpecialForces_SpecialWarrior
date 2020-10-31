@@ -2,9 +2,11 @@ package co.specialforce.data.retrofit
 
 import co.specialforce.data.request.*
 import co.specialforce.data.response.*
+import co.specialforce.data.response.getCal.FoodInputResponse
 import co.specialforce.data.response.getExercise.GetExerciseResponse
 import co.specialforce.data.response.getFriend.GetFriendResponse
 import co.specialforce.data.response.getHeart.GetHeartResponse
+import co.specialforce.data.response.getInfo.GetInfoResponse
 import co.specialforce.data.response.getProfile.GetProfileResponse
 import co.specialforce.data.response.getSleep.GetSleepResponse
 import co.specialforce.data.response.getWeight.GetWeightResponse
@@ -59,4 +61,11 @@ interface RetrofitService {
 
     @POST("/api/v1/member/get_userinfo")
     fun getProfile(@Header("Authorization") token : String) : Call<GetProfileResponse>
+
+    @POST("/api/v1/profile/get_profile")
+    fun getDailyInfo(@Header("Authorization") token : String) : Call<GetInfoResponse>
+
+    @POST("/api/v1/profile/set_calorie")
+    fun foodInput(@Header("Authorization") token : String,
+                  @Body request: FoodInputRequest) : Call<FoodInputResponse>
 }
