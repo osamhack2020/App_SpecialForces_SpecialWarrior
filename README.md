@@ -1,4 +1,4 @@
-# 국방 헬스케어 솔루션 SpecialForces App
+# 국방 헬스케어 솔루션 SpecialForces Web
 
 ## What is SpecialForces?
 <img src="https://user-images.githubusercontent.com/39221443/97781525-67e25b00-1bcf-11eb-9f6f-9472f3435563.gif" width=400 height=160></img><br>
@@ -13,13 +13,11 @@
 [![DOCUMENT](https://img.shields.io/badge/Gitbook-LINK-blue?style=for-the-badge)](https://specialwarrior-specialforces.gitbook.io/specialforces/)
 
 ## Contribution
-
-[![DOCUMENT](https://img.shields.io/badge/Gitbook-LINK-blue?style=for-the-badge)](https://specialwarrior-specialforces.gitbook.io/specialforces/)
-
+[![DOCUMENT](https://img.shields.io/badge/SLACK-LINK-GREEN?style=for-the-badge)](https://join.slack.com/t/osamspecialforce/shared_invite/zt-iw3ze47l-o7KSB_eoRb3A7esxl~vYIw)
 ## Contributers
-- <b>PM & IoT</b> <a href="https://github.com/Moerai"><img src="https://img.shields.io/badge/github-Moerai-brightgreen"></a>
-- <b>Web & Server</b> <a href = "https://github.com/goraegori"><img src="https://img.shields.io/badge/github-goraegori-brightgreen"></a>
-- <b>Application</b> <a href = "https://github.com/LieutenantKang"><img src="https://img.shields.io/badge/github-LieutenantKang-brightgreen"></a>
+- <b>PM & IoT</b> <a href="https://github.com/Moerai"><img src="https://img.shields.io/badge/github-Moerai-brightgreen?style=for-the-badge"></a>
+- <b>Web & Server</b> <a href = "https://github.com/goraegori"><img src="https://img.shields.io/badge/github-goraegori-brightgreen?style=for-the-badge"></a>
+- <b>Application</b> <a href = "https://github.com/LieutenantKang"><img src="https://img.shields.io/badge/github-LieutenantKang-brightgreen?style=for-the-badge"></a>
 
 ## License(저작권 및 사용권 정보)
 - IoT
