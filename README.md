@@ -1,4 +1,4 @@
-# 국방 헬스케어 솔루션 SpecialForces IoT
+# 국방 헬스케어 솔루션 SpecialForces App
 
 ## What is SpecialForces?
 <img src="https://user-images.githubusercontent.com/39221443/97781525-67e25b00-1bcf-11eb-9f6f-9472f3435563.gif" width=400 height=160></img><br>
