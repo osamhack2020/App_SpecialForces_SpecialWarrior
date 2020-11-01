@@ -1,6 +1,6 @@
 ## SpecialForces - App
 <p align="center"><img src="https://user-images.githubusercontent.com/39221443/97781525-67e25b00-1bcf-11eb-9f6f-9472f3435563.gif" width=400 height=160></img><br>
-SpecialForces is a healthcare solution for Ministry of National Defense Soldiers.<br/>
+<b>SpecialForces</b>는 병사에게 발전의 즐거움을, 간부에게는 체계적 관리를 제공하는 <b>병영생활 밀착형 헬스케어 솔루션<b/> 입니다.<br/>
 <a href="https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README_KR.md"><img src="https://img.shields.io/badge/README%20LANGUAGE-KOREAN-orange?style=for-the-badge"></img></a>
 <a href="https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README.md"><img src="https://img.shields.io/badge/README%20LANGUAGE-ENGLISH-orange?style=for-the-badge"></a>
 
