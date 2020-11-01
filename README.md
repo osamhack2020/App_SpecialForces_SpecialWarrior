@@ -1,10 +1,8 @@
-[![ORG README](https://img.shields.io/badge/README%20LANGUAGE-ORIGINAL-orange?style=for-the-badge)](https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README.md)
-[![KOR README](https://img.shields.io/badge/README%20LANGUAGE-KOREAN-orange?style=for-the-badge)](https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README_KR.md)
-[![ENG README](https://img.shields.io/badge/README%20LANGUAGE-ENGLISH-orange?style=for-the-badge)](https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README_EN.md)
-
 ## SpecialForces - App
-<img src="https://user-images.githubusercontent.com/39221443/97781525-67e25b00-1bcf-11eb-9f6f-9472f3435563.gif" width=400 height=160></img><br>
-SpecialForces is a healthcare solution for Ministry of National Defense Soldiers.
+<p align="center"><img src="https://user-images.githubusercontent.com/39221443/97781525-67e25b00-1bcf-11eb-9f6f-9472f3435563.gif" width=400 height=160></img><br>
+SpecialForces is a healthcare solution for Ministry of National Defense Soldiers.<br/>
+<a href="https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README_KR.md"><img src="https://img.shields.io/badge/README%20LANGUAGE-KOREAN-orange?style=for-the-badge"></img></a>
+<a href="https://github.com/osamhack2020/IoT_SpecialForces_SpecialWarrior/blob/master/README.md"><img src="https://img.shields.io/badge/README%20LANGUAGE-ENGLISH-orange?style=for-the-badge"></a>
 
 ## Manual
 - <b>Git Book</b> [![DOCUMENT](https://img.shields.io/badge/Gitbook-LINK-blue?style=for-the-badge)](https://specialwarrior-specialforces.gitbook.io/specialforces/)
