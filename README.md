@@ -7,6 +7,9 @@ SpecialForces is a healthcare solution for Ministry of National Defense Soldiers
 ## Manual
 - <b>Git Book</b> [![DOCUMENT](https://img.shields.io/badge/Gitbook-LINK-blue?style=for-the-badge)](https://specialwarrior-specialforces.gitbook.io/specialforces/)
 
+## Documents
+- <b>Google Drive</b> <a href="https://drive.google.com/drive/folders/1SVxtp0UwRcgAvQrrkHZuRXdhAcqey4Ys?usp=sharing"><img src="https://img.shields.io/badge/Google Drive-LINK-blue?style=for-the-badge"></img></a>
+
 ## Contribution & Community
 
 - <b>Slack Link</b> [![DOCUMENT](https://img.shields.io/badge/SLACK-SpecialWarrior-purple?style=for-the-badge)](https://join.slack.com/t/osamspecialforce/shared_invite/zt-iw3ze47l-o7KSB_eoRb3A7esxl~vYIw)
