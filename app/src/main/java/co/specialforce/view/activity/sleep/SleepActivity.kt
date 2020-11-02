@@ -7,6 +7,7 @@ import co.specialforce.R
 import co.specialforce.base.BaseActivity
 import co.specialforce.data.response.getSleep.SleepArray
 import co.specialforce.data.response.getSleep.SleepMinMaxAvg
+import co.specialforce.view.marker.SfMarkerView
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -68,11 +69,11 @@ class SleepActivity: BaseActivity(), SleepContract.View, View.OnClickListener {
         }
         xAxis.valueFormatter = object : IndexAxisValueFormatter(){
             override fun getFormattedValue(value: Float): String {
-                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
+                return SimpleDateFormat("MM-dd").format(Date(value.toLong()))
             }
 
             override fun getAxisLabel(value: Float, axis: AxisBase?): String {
-                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
+                return SimpleDateFormat("MM-dd").format(Date(value.toLong()))
             }
         }
         sleep_chart.data = lineData
@@ -121,7 +122,9 @@ class SleepActivity: BaseActivity(), SleepContract.View, View.OnClickListener {
         sleep_min_text.text = sleepMinMaxAvg?.min?.toInt().toString()+"분"
         sleep_max_text.text = sleepMinMaxAvg?.max?.toInt().toString()+"분"
         sleep_avg_text.text = sleepMinMaxAvg?.average?.toInt().toString()+"분"
-
+        val marker = SfMarkerView(this, R.layout.marker_textview)
+        marker.chartView = sleep_chart
+        sleep_chart.marker = marker
     }
     override fun isViewActive(): Boolean = isViewActive()
 }

@@ -74,11 +74,11 @@ class HeartActivity: BaseActivity(), HeartContract.View, View.OnClickListener {
         }
         xAxis.valueFormatter = object : IndexAxisValueFormatter(){
             override fun getFormattedValue(value: Float): String {
-                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
+                return SimpleDateFormat("MM-dd").format(Date(value.toLong()))
             }
 
             override fun getAxisLabel(value: Float, axis: AxisBase?): String {
-                return SimpleDateFormat("yyyy-MM-dd").format(Date(value.toLong()))
+                return SimpleDateFormat("MM-dd").format(Date(value.toLong()))
             }
         }
         heart_chart.data = lineData
